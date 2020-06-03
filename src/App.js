@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import LoginPage from "./components/LoginPage/LoginPage";
+import Tablejs from "./containers/fakeData";
+import ModalData from "./containers/modaldata/modalData";
+import ModalButton from "./containers/modaldata/modalButton";
+import Navbar from "./containers/modaldata/navbar";
+class App extends Component {
+  render() {
+    // const style = {backgroundImage: 'url(./components/loginpage/background.png)'}
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+      <div>
+        {/* <LoginPage /> */}
+        {/* <ModalData /> */}
+        <Tablejs />
+        {/* <ModalButton /> */}
+      </div>
+    );
+  }
 }
 
 export default App;
