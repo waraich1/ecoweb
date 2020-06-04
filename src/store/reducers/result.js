@@ -1,27 +1,42 @@
+import {
+  DATA_REQUEST,
+  DATA_SUCCESS,
+  DATA_FAILED,
+  ASYNC_DATA_REQUEST
+} from './action';
+
 const initialState = {
-  results: []
+  data: [],
+  success: false,
+  loading: false
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "Hello":
+    case DATA_REQUEST:
       return {
         ...state,
-        results: state.results.concat({ id: new Date(), value: action.result })
+        loading: true
       };
-    case "Hello11":
-      // const id = 2;
-      // const newArray = [...state.results];
-      // newArray.splice(id, 1)
-      const updatedArray = state.results.filter(
-        result => result.id !== action.resultElId
-      );
+    case DATA_SUCCESS:
       return {
         ...state,
-        results: updatedArray
+        loading: false,
+        success: true,
+        data: action.payload
+      };
+    case DATA_FAILED:
+      return {
+        ...state,
+        loading: false,
+        success: false,
+        data: []
+      };
+    default:
+      return {
+        ...state
       };
   }
-  return state;
 };
 
 export default reducer;

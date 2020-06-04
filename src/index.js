@@ -1,30 +1,26 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import * as serviceWorker from "./serviceWorker";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux';
 
-import "./index.css";
-import App from "./App";
+import './index.css';
+import App from './App';
 
-import reducer from "../src/store/reducers/result";
+import { store } from './store';
 
-const store = createStore(reducer);
-
-const styleLink = document.createElement("link");
-styleLink.rel = "stylesheet";
+const styleLink = document.createElement('link');
+styleLink.rel = 'stylesheet';
 styleLink.href =
-  "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
+  'https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css';
 document.head.appendChild(styleLink);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById("root")
+  <Provider store={store}>
+    <App />
+  </Provider>,
+
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
