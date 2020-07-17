@@ -2,6 +2,7 @@ import React from "react";
 import LoginModal from "./LoginModal";
 import styled from "styled-components";
 import img from "../../images/background.png";
+import axios from "axios";
 
 const loginpage = () => {
   const LoginPage = styled.div`

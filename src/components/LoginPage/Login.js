@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { GoogleLogin } from "react-google-login";
+import axios from "axios";
 
 class Login extends Component {
+  state = {
+    res_id: []
+  };
+
   render() {
+    const responseGoogle = response => {
+      this.setState({ res_id: response });
+    };
+
     return (
       <GoogleLogin
         style={{
@@ -13,7 +22,8 @@ class Login extends Component {
         }}
         clientId="170583750497-l23412rlb9a6q77knksrctcv7i5tiqe8.apps.googleusercontent.com"
         buttonText="Login"
-        onSuccess={this.responseGoogle}
+        onSuccess={responseGoogle}
+        isSignedIn={true}
         onFailure={this.errorMess}
         cookiePolicy={"single_host_origin"}
       />
